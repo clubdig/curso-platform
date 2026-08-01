@@ -20,5 +20,6 @@
     "paths": {
       "@/*": ["src/*"]
     }
-  }
+  },
+  "exclude": ["prisma", "node_modules", "dist"]
 }
