@@ -10,8 +10,13 @@ async function bootstrap() {
 
   app.setGlobalPrefix('api');
 
+  const appUrl = configService.get('NEXT_PUBLIC_APP_URL');
+  const allowedOrigins = appUrl
+    ? appUrl.split(',').map((origin) => origin.trim())
+    : ['http://localhost:3000'];
+
   app.enableCors({
-    origin: configService.get('NEXT_PUBLIC_APP_URL'),
+    origin: allowedOrigins,
     credentials: true,
   });
 
